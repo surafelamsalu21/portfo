@@ -33,7 +33,6 @@ def write_to_csv(data):
             database2,
             delimiter=",",
             quotechar="'",
-            newline="",
             quoting=csv.QUOTE_MINIMAL,
         )
         csv_writer.writerow([email, subject, message])
@@ -48,9 +47,8 @@ def submit_form():
             write_to_file(data)
             write_to_csv(data)
             return redirect("/thankyou.html")
-
         except:
-            return "Did not save to the datavase"
+            return "Something went wrong"
 
     else:
         return "Something went wrong"
